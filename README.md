@@ -8,11 +8,11 @@ para no alterar los demas archivos. Si es muy complicado, puedes  crear un repos
 
 ## Programadores ⚙
 
-```
-No lo tomes como jerarquia, si no como competitividad.👍🏻
+
+No lo tomes como jerarquia, si no como competitividad. 👍🏻
 Se intentara editar semanalmente por simple diversión.
 Suerte.
-```
+
 
 🟪 **NaferJ**
 
