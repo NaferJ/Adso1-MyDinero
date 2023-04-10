@@ -8,6 +8,12 @@ para no alterar los demas archivos. Si es muy complicado, puedes  crear un repos
 
 ## Programadores ⚙
 
+```
+No lo tomes como jerarquia, si no como competitividad.👍🏻
+Se intentara editar semanalmente por simple diversión.
+Suerte.
+```
+
 🟪 **NaferJ**
 
 <a href= "https://github.com/NaferJ" > <img src="https://avatars.githubusercontent.com/u/104089760?v=4" align="left" width="115" ></a>
@@ -23,11 +29,5 @@ para no alterar los demas archivos. Si es muy complicado, puedes  crear un repos
 🟥 **AndresGG23**
 
 <a href= "https://github.com/AndresGG23" > <img src="https://user-images.githubusercontent.com/104089760/231014864-75d7a044-b72b-4015-924e-0537437a577b.png" align="left" width="115" ></a>
-
-```
-No lo tomes como jerarquia, si no como competitividad.👍🏻
-Se intentara editar semanalmente por simple diversión.
-Suerte.
-```
 
 
