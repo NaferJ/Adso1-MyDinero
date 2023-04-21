@@ -1,6 +1,6 @@
 <div class="col-md-6 offset-md-3">
     <h3 class="text-center"> Registro </h3>
-    <form (ngSubmit)="onSubmit">
+    <form (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label for="">Nombre</label>
             <br>
@@ -22,7 +22,7 @@
         <div class="form-group">
             <label for="">Email</label>
             <br>
-            <input type="text"
+            <input type="email"
             class="form-control"
             id="email"
             [(ngModel)] = "empleado.email"

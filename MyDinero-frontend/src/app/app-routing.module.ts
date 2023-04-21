@@ -4,7 +4,7 @@ import { ListaEmpleadosComponent } from './lista-empleados/lista-empleados.compo
 import { RegistrarEmpleadoComponent } from './registrar-empleado/registrar-empleado.component';
 
 const routes: Routes = [
-  {path : 'eempleados', component:ListaEmpleadosComponent},
+  {path : 'empleados', component:ListaEmpleadosComponent},
   {path : '', redirectTo : 'empleados', pathMatch : 'full'},
   {path : 'registrar-empleado', component : RegistrarEmpleadoComponent}
 ];
