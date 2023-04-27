@@ -1,5 +1,5 @@
 <div class="col-md-6 offset-md-3">
-    <h3 class="text-center">Registro de empleado</h3>
+    <h3 class="text-center">Edición de empleado</h3>
     <form (ngSubmit)= "onSubmit()" #empleadoForm = "ngForm">
       <div class="form-group">
         <label>Nombre : </label>
@@ -77,4 +77,3 @@
       <button class="btn btn-success" [disabled]= "!empleadoForm.form.valid">Guardar</button>
     </form>
   </div>
-  
