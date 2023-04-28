@@ -15,13 +15,13 @@
         #nombre = "ngModel"
         >
         <div class="alert alert-danger" *ngIf= "nombre.invalid && (nombre.dirty || nombre.touched)">
-          <div *ngIf = "nombre.errors.required">
+          <div *ngIf = "nombre.errors?.['required']">
             Digite su nombre por favor
           </div>
-          <div *ngIf = "nombre.errors.minlength">
+          <div *ngIf = "nombre.errors?.['minlength']">
             El nombre tiene que contener como minimo 4 caracteres
           </div>
-          <div *ngIf = "nombre.errors.maxlength">
+          <div *ngIf = "nombre.errors?.['maxlength']">
             El nombre tiene que tener como maximo 10 caracteres
           </div>
         </div>
@@ -41,13 +41,13 @@
         #apellido = "ngModel"
         >
         <div class="alert alert-danger" *ngIf= "apellido.invalid && (apellido.dirty || apellido.touched)">
-          <div *ngIf = "apellido.errors.required">
+          <div *ngIf = "apellido.errors?.['required']">
             Digite su apellido por favor
           </div>
-          <div *ngIf = "apellido.errors.minlength">
+          <div *ngIf = "apellido.errors?.['minlength']">
             El apellido tiene que contener como minimo 4 caracteres
           </div>
-          <div *ngIf = "apellido.errors.maxlength">
+          <div *ngIf = "apellido.errors?.['maxlength']">
             El apellido tiene que tener como maximo 10 caracteres
           </div>
         </div>
@@ -65,10 +65,10 @@
         #email = "ngModel"
         >
         <div class="alert alert-danger" *ngIf= "email.invalid && (email.dirty || apellido.touched)">
-          <div *ngIf = "email.errors.required">
+          <div *ngIf = "email.errors?.['required']">
             Digite su email por favor
           </div>
-          <div *ngIf = "email.errors.pattern">
+          <div *ngIf = "email.errors?.['pattern']">
             Por favor digite el email con el siguiente formato : user100@gmail.com
           </div>
         </div>
