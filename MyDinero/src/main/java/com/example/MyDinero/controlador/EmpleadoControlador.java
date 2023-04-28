@@ -1,10 +1,13 @@
 package com.example.MyDinero.controlador;
 
 import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -58,4 +61,16 @@ public class EmpleadoControlador {
 			Empleado empleadoActualizado = repositorio.save(empleado);
 			return ResponseEntity.ok(empleadoActualizado);
 	}
+		
+		//este metodo sirve para eliminar un empleado
+		@DeleteMapping("/empleados/{id}")
+		public ResponseEntity<Map<String,Boolean>> eliminarEmpleado(@PathVariable Long id){
+			Empleado empleado = repositorio.findById(id)
+					            .orElseThrow(() -> new ResourceNotFoundException("No existe el empleado con el ID : " + id));
+			
+			repositorio.delete(empleado);
+			Map<String, Boolean> respuesta = new HashMap<>();
+			respuesta.put("eliminar",Boolean.TRUE);
+			return ResponseEntity.ok(respuesta);
+	    }
 }
