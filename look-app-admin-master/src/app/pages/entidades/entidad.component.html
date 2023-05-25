@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Listado - Entidades
+          <button class="btn bg-success btn-icon btn-round" style="float: right" (click)="createEntidad()" matTooltip="Crear">
+            <i class="nc-icon nc-simple-add"></i>
+          </button>
+          <button class="btn bg-info btn-icon btn-round" style="float: right" matTooltip="Ver Todas">
+            <i class="material-icons">playlist_add_check</i>
+          </button>
+          <button class="btn bg-default btn-icon btn-round" style="float: right" matTooltip="refresh" (click)="refreshList();">
+            <i class="material-icons">refresh</i>
+          </button>
+        </h4>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead class="text-primary">
+              <th>#</th>
+              <th>Nombre</th>
+              <th>Nit</th>
+              <th>Direccion</th>
+              <th>Telefono</th>
+              <th>Nombre Contacto</th>
+              <th>Email Contacto</th>
+              <th>Acciones</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of entidades| paginate: {itemsPerPage: 6, currentPage: pageNow}; let i = index">
+                <td>{{i+1}}</td>
+                <td>{{item.nombre}}</td>
+                <td>{{item.nit}}</td>
+                <td>{{item.direccion}}</td>
+                <td>{{item.telefono}}</td>
+                <td>{{item.contactNombre}}</td>
+                <td>{{item.contactEmail}}</td>
+                <td>
+                  <div class="row">
+                    <button class="btn btn-danger  btn-sm btn-round btn-icon" type="button" (click)="updateEntidad(item)" matTooltip="Editar">
+                      <i class="material-icons">create</i>
+                    </button>
+                    <button class="btn btn-google  btn-sm btn-round btn-icon" type="button" (click)="setEstado(item)" matTooltip="eliminar">
+                      <i class="material-icons">clear</i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <pagination-controls *ngIf="entidades?.length >= 5" (pageChange)="pageNow = $event" responsive="true"
+            previousLabel="Ant" nextLabel="Sgte" screenReaderPaginationLabel="Pagination"
+            screenReaderPageLabel="page">
+          </pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,180 @@
+<div class="container">
+  <form method="POST" [formGroup]="datos" (ngSubmit)="submit()" enctype="multipart/form-data">
+    <div class="card-header bg-white">
+      <div class="card-icon">
+        <i class="nc-icon nc-bank"></i>
+      </div>
+      <h5 class="card-title">Formulario -  Entidades</h5>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-6 col-xs-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Nombre</mat-label>
+              <input matInput name="nombre" formControlName="nombre" placeholder="Nombre">
+              <mat-error class="error-message" *ngIf="datos.get('nombre').hasError">
+                El campo nombre es requerido
+              </mat-error>
+              <mat-icon matSuffix>account_circle</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Nit</mat-label>
+              <input type="text" matInput name="nit" formControlName="nit" placeholder="Nit">
+              <mat-error class="error-message" *ngIf="datos.get('nit').hasError">
+                El campo nit es requerido
+              </mat-error>
+              <mat-icon matSuffix>account_balance_wallet</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-xs-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Direccion</mat-label>
+              <input matInput name="direccion" formControlName="direccion" placeholder="Direccion">
+              <mat-error class="error-message" *ngIf="datos.get('direccion').hasError">
+                El campo direccion es requerido
+              </mat-error>
+              <mat-icon matSuffix>my_location</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Telefono</mat-label>
+              <input matInput name="telefono" formControlName="telefono" placeholder="Telefono">
+              <mat-error class="error-message" *ngIf="datos.get('telefono').hasError">
+                El campo telefono es requerido
+              </mat-error>
+              <mat-icon matSuffix>local_phone</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Ciudad</mat-label>
+              <input matInput name="ciudad" formControlName="ciudad" placeholder="Ciudad">
+              <mat-error class="error-message" *ngIf="datos.get('ciudad').hasError">
+                El campo ciudad es requerido
+              </mat-error>
+              <mat-icon matSuffix>face</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Pais</mat-label>
+              <input matInput type="text" formControlName="pais" name="pais" placeholder="Pais">
+              <mat-error class="error-message" *ngIf="datos.get('pais').hasError">
+                El campo Pais es requerido
+              </mat-error>
+              <mat-icon matSuffix>markunread</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Código Zip</mat-label>
+              <input matInput formControlName="codigoZip" placeholder="Código Zip">
+              <mat-error class="error-message" *ngIf="datos.get('codigoZip').hasError">
+                El campo Código Zip es requerido
+              </mat-error>
+              <mat-icon matSuffix>face</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Nombre de Contacto</mat-label>
+              <input matInput name="contactNombre" formControlName="contactNombre" placeholder="Nombre de usuario">
+              <mat-error class="error-message" *ngIf="datos.get('contactNombre').hasError">
+                El campo Nombre de contacto es requerido
+              </mat-error>
+              <mat-icon matSuffix>face</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Email de Contacto</mat-label>
+              <input matInput type="email" formControlName="contactEmail" name="contactEmail" placeholder="Email">
+              <mat-error class="error-message" *ngIf="datos.get('contactEmail').hasError">
+                El campo email de contacto es requerido
+              </mat-error>
+              <mat-icon matSuffix>markunread</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Telefono Contacto</mat-label>
+              <input matInput name="contactTelefono" formControlName="contactTelefono" placeholder="Telefono Contacto">
+              <mat-error class="error-message" *ngIf="datos.get('contactTelefono').hasError">
+                El campo telefono de contacto es requerido
+              </mat-error>
+              <mat-icon matSuffix>phone_android</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 col-xs-12">
+          <span class="btn-file">
+            <input type="file" (change)="onFileSelected($event)">
+          </span>
+          <div class="img-responsive" *ngIf="imgUrl">
+            <img class="avatarP" [src]="imgUrl" alt="_img" style="max-width: 40% !important; max-height: 40% !important;">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 col-xs-12">
+          <mat-form-field style="width: 100%;" appearance="outline">
+            <mat-label>Descripción</mat-label>
+            <textarea cols="10" formControlName="descripcion" matInput
+              placeholder="Agregue una descripcion para el producto por favor"></textarea>
+            <mat-error class="error-message" *ngIf="datos.get('descripcion').hasError">
+              El campo descripcion es requerido
+            </mat-error>
+            <mat-icon matSuffix>chrome_reader_mode</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="row">
+        <div class="col-md-6 text-center">
+          <button class="btn btn-fill  btn-success mat-raised-button" type="button" (click)="submit()">
+            <mat-icon matSuffix>save</mat-icon> Guardar
+          </button>
+        </div>
+        <div class="col-md-6 text-center">
+          <button class="btn btn-fill  btn-danger mat-raised-button" type="button" (click)="dialogRef.close(0)">
+            <mat-icon matSuffix>cancel</mat-icon> Cancelar
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

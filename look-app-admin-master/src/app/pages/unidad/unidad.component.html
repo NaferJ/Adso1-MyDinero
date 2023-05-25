@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Listado - Unidades medida
+          <button class="btn bg-success btn-icon btn-round" style="float: right" matTooltip="Crear" (click)="createUnidad()">
+            <i class="nc-icon nc-simple-add"></i>
+          </button>
+        </h4>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead class="text-primary">
+              <th>#</th>
+              <th>Nombre</th>
+              <th>Descripcion</th>
+              <th>Acciones</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of unidades | paginate: {itemsPerPage: 6, currentPage: pageNow}; let i = index;">
+                <td>{{i+1}}</td>
+                <td>{{item.nombre}}</td>
+                <td>{{item.descripcion}}</td>
+                <td>
+                  <div class="row">
+                    <button class="btn btn-danger  btn-sm btn-round btn-icon" type="button" matTooltip="Editar" (click)="updateUnidad(item)">
+                      <i class="material-icons">create</i>
+                    </button>
+                    <button class="btn btn-google  btn-sm btn-round btn-icon" type="button" matTooltip="Eliminar" (click)="setEstado(item)">
+                      <i class="material-icons">clear</i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <pagination-controls *ngIf="unidades?.length >= 5" (pageChange)="pageNow = $event" responsive="true"
+            previousLabel="Ant" nextLabel="Sgte" screenReaderPaginationLabel="Pagination"
+            screenReaderPageLabel="page">
+          </pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

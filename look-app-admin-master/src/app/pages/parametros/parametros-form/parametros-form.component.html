@@ -1,0 +1,116 @@
+<div class="container">
+  <form method="POST" [formGroup]="datos" (ngSubmit)="submit()">
+    <div class="card-header bg-white">
+      <div class="card-icon">
+        <i class="nc-icon nc-box-2"></i>
+      </div>
+      <h5 class="card-title">Formulario - Parametros</h5>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Nombre</mat-label>
+              <input matInput formControlName="nombre" placeholder="Nombre">
+              <mat-error class="error-message" *ngIf="datos.get('nombre').hasError">
+                El campo nombre es requerido
+              </mat-error>
+              <mat-icon matSuffix>rate_review</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Abreviacion</mat-label>
+              <input  matInput formControlName="abrev" placeholder="abreviacion">
+              <mat-error class="error-message" *ngIf="datos.get('abrev').hasError">
+                El campo abreviacion es requerido
+              </mat-error>
+              <mat-icon matSuffix>more_horiz</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-xs-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Grupo</mat-label>
+              <mat-select formControlName="grupo">
+                <mat-option style="text-transform: uppercase;" *ngFor="let item of grupo" [value]="item.id">
+                  {{item.nombre}}
+                </mat-option>
+              </mat-select>
+              <mat-error class="error-message" *ngIf="datos.get('grupo').hasError">
+                El campo grupo es requerido
+              </mat-error>
+              <mat-icon matSuffix>assignment_ind</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <mat-form-field appearance="outline">
+            <mat-label>Valor</mat-label>
+            <input matInput formControlName="valor" placeholder="valor">
+            <mat-error class="error-message" *ngIf="datos.get('abrev').hasError">
+              El campo valor es requerido
+            </mat-error>
+            <mat-icon matSuffix>more_horiz</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Código</mat-label>
+            <input matInput formControlName="codigo" placeholder="codigo">
+            <mat-error class="error-message" *ngIf="datos.get('codigo').hasError">
+              El campo codigo es requerido
+            </mat-error>
+            <mat-icon matSuffix>more_horiz</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <mat-form-field appearance="outline">
+            <mat-label>Fecha Inicio</mat-label>
+            <input matInput formControlName="fechaInicio" [matDatepicker]="fechaInicio" placeholder="Fecha Inicio">
+            <mat-datepicker-toggle matSuffix [for]="fechaInicio"></mat-datepicker-toggle>
+            <mat-datepicker #fechaInicio></mat-datepicker>
+            <mat-error class="error-message" *ngIf="datos.get('fechaInicio').hasError">
+              El campo fecha inicio es requerido
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-6">
+          <mat-form-field appearance="outline">
+            <mat-label>Fecha Fin</mat-label>
+            <input matInput formControlName="fechaFin" [matDatepicker]="pickerfin" placeholder="Fecha Fin">
+            <mat-datepicker-toggle matSuffix [for]="pickerfin"></mat-datepicker-toggle>
+            <mat-datepicker #pickerfin></mat-datepicker>
+            <mat-error class="error-message" *ngIf="datos.get('fechaFin').hasError">
+              El Campo fecha fin es requerido
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="row">
+        <div class="col-md-6 text-center">
+          <button class="btn btn-fill  btn-success mat-raised-button" type="button" (click)="submit()">
+            Guardar
+          </button>
+        </div>
+        <div class="col-md-6 text-center">
+          <button class="btn btn-fill  btn-danger mat-raised-button" type="button" (click)="dialogRef.close(0)">
+            Cancelar
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

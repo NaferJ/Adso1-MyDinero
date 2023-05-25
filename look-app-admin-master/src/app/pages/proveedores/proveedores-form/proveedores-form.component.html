@@ -1,0 +1,94 @@
+<div class="container">
+  <form method="POST" [formGroup]="datos" (ngSubmit)="submit()" enctype="multipart/form-data">
+    <div class="card-header bg-white">
+      <div class="card-icon">
+        <i class="nc-icon nc-box-2"></i>
+      </div>
+      <h5 class="card-title">Formulario - Proveedores</h5>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-6 col-xs-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Nit</mat-label>
+              <input matInput name="nit" formControlName="nit" placeholder="Nit">
+              <mat-error class="error-message" *ngIf="datos.get('nit').hasError">
+                El campo nit es requerido
+              </mat-error>
+              <mat-icon matSuffix>rate_review</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Nombre</mat-label>
+              <input type="text" matInput name="nombre" formControlName="nombre" placeholder="Nombre">
+              <mat-error class="error-message" *ngIf="datos.get('nombre').hasError">
+                El campo Nombre es requerido
+              </mat-error>
+              <mat-icon matSuffix>contacts</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-xs-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Direccion</mat-label>
+              <input matInput name="direccion" formControlName="direccion"
+                placeholder="Direccion">
+              <mat-error class="error-message" *ngIf="datos.get('direccion').hasError">
+                El campo Direccion es requerido
+              </mat-error>
+              <mat-icon matSuffix>where_to_vote</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Telefono</mat-label>
+              <input matInput name="telefono" formControlName="telefono" placeholder="Telefono">
+              <mat-error class="error-message" *ngIf="datos.get('telefono').hasError">
+                El campo Telefono es requerido
+              </mat-error>
+              <mat-icon matSuffix>phone</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Email</mat-label>
+              <input matInput name="email" formControlName="email"
+                placeholder="Precio de Venta" type="email">
+              <mat-error class="error-message" *ngIf="datos.get('email').hasError">
+                El campo email es requerido
+              </mat-error>
+              <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="row">
+        <div class="col-md-6 text-center">
+          <button class="btn btn-fill  btn-success mat-raised-button" type="button" (click)="submit()" [disabled]="!datos.valid">
+            <mat-icon matSuffix>save</mat-icon> Guardar
+          </button>
+        </div>
+        <div class="col-md-6 text-center">
+          <button class="btn btn-fill  btn-danger mat-raised-button" type="button" (click)="dialogRef.close(0)">
+            <mat-icon matSuffix>cancel</mat-icon> Cancelar
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

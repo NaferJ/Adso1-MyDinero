@@ -1,0 +1,56 @@
+<div class="wrapper wrapper-full-page">
+  <div class="full-page section-image" data-image="./assets/img/bg/fabio-mangione.jpg" filter-color="black">
+    <div class="content">
+      <div class="container">
+        <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+          <form action="" class="form ng-untouched ng-pristine ng-valid" method="" novalidate="">
+            <div class="card card-login">
+              <div class="card-header ">
+                <div class="card-header ">
+                  <h3 class="header text-center">{{title}}</h3>
+                </div>
+              </div>
+              <div class="card-body ">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="nc-icon nc-single-02"></i>
+                    </span>
+                  </div>
+                  <input class="form-control" placeholder="usuario" type="text" [(ngModel)]="usuario.username" id="username" name="username" autofocus>
+                </div>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">
+                      <i class="nc-icon nc-key-25"></i>
+                    </span>
+                  </div>
+                  <input class="form-control" placeholder="Contraseña" type="password" [(ngModel)]="usuario.password" name="password" id="password" autocomplete="false">
+                </div>
+              </div>
+              <div class="card-footer ">
+                <input type="submit" class="btn btn-warning btn-round btn-block mb-3" value="Entrar" (click)="login()">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <footer class="footer footer-black  footer-white ">
+      <div class="container">
+        <div class="row">
+          <nav class="footer-nav">
+            <ul>
+              <li><a href="https://github.com/YamidDev" target="_blank">Yamid Cueto</a></li>
+              <li><a href="http://tributo.co" target="_blank">Tributo</a></li>
+            </ul>
+          </nav>
+          <div class="credits ml-auto">
+            <span class="copyright"> © 2019, hecho con <i class="fa fa-heart heart"></i> by GTS </span>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div class="full-page-background" style="background-image: url(./assets/img/bg/fabio-mangione.jpg) "></div>
+  </div>
+</div>

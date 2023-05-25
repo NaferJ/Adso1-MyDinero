@@ -1,0 +1,218 @@
+<div class="container">
+  <form method="POST" [formGroup]="datos" (ngSubmit)="submit()" enctype="multipart/form-data">
+    <div class="card-header bg-white">
+      <div class="card-icon">
+        <i class="material-icons">contacts</i>
+      </div>
+      <h5 class="card-title">Formulario - Productos</h5>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-6 col-xs-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Nombre</mat-label>
+              <input matInput name="nombre" formControlName="nombre" placeholder="Nombre">
+              <mat-error class="error-message" *ngIf="datos.get('nombre').hasError">
+                El campo nombre es requerido
+              </mat-error>
+              <mat-icon matSuffix>rate_review</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Cantidad</mat-label>
+              <input type="text" matInput name="cantidad" formControlName="cantidad" placeholder="cantidad">
+              <mat-error class="error-message" *ngIf="datos.get('cantidad').hasError">
+                El campo cantidad es requerido
+              </mat-error>
+              <mat-icon matSuffix>show_chart</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-xs-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Precio Compra</mat-label>
+              <input matInput name="precioCompra" currencyMask formControlName="precioCompra"
+                placeholder="Precio de Compra">
+              <mat-error class="error-message" *ngIf="datos.get('precioCompra').hasError">
+                El campo Precio de Compra es requerido
+              </mat-error>
+              <mat-icon matSuffix>attach_money</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Numero de Factura</mat-label>
+              <input matInput name="noFactura" formControlName="noFactura" placeholder="Num de Factura">
+              <mat-error class="error-message" *ngIf="datos.get('noFactura').hasError">
+                El campo Numero de Factura es requerido
+              </mat-error>
+              <mat-icon matSuffix>assignment</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Precio Venta</mat-label>
+              <input currencyMask matInput name="precioVenta" formControlName="precioVenta"
+                placeholder="Precio de Venta">
+              <mat-error class="error-message" *ngIf="datos.get('precioVenta').hasError">
+                El campo precio de venta es requerido
+              </mat-error>
+              <mat-icon matSuffix>attach_money</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Stock Minimo</mat-label>
+              <input matInput type="text" formControlName="stockMin" name="sotckMin" placeholder="Stock Minimo">
+              <mat-error class="error-message" *ngIf="datos.get('stockMin').hasError">
+                El campo stock Minimo es requerido
+              </mat-error>
+              <mat-icon matSuffix>inbox</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-xs-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Ubicación</mat-label>
+              <input matInput name="ubicacion" formControlName="ubicacion" placeholder="ubicacion">
+              <mat-error class="error-message" *ngIf="datos.get('ubicacion').hasError">
+                El campo ubicacion es requerido
+              </mat-error>
+              <mat-icon matSuffix>where_to_vote</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Utilidad</mat-label>
+              <input matInput name="utilidad" formControlName="utilidad" placeholder="Utilidad">
+              <mat-error class="error-message" *ngIf="datos.get('utilidad').hasError">
+                El campo Utilidad es requerido
+              </mat-error>
+              <mat-icon matSuffix>trending_up</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-xs-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Utilidad Esperada</mat-label>
+              <input matInput name="utilidadEsperada" formControlName="utilidadEsperada"
+                placeholder="Utilidad Esperada">
+              <mat-error class="error-message" *ngIf="datos.get('utilidadEsperada').hasError">
+                El campo Utilidad Esperada es requerido
+              </mat-error>
+              <mat-icon matSuffix>timeline</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Unidad de Medida</mat-label>
+              <mat-select formControlName="unidadMedida">
+                <mat-option style="text-transform: uppercase;" *ngFor="let item of unidadMedida" [value]="item.id">
+                  {{item.nombre }}
+                </mat-option>
+              </mat-select>
+              <mat-error class="error-message" *ngIf="datos.get('unidadMedida').hasError">
+                El campo Unidad de medida es requerido
+              </mat-error>
+              <mat-icon matSuffix>timeline</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-xs-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Proveedores</mat-label>
+              <mat-select formControlName="proveedores">
+                <mat-option style="text-transform: uppercase;" *ngFor="let item of proveedores" [value]="item.id">
+                  {{item.nombre }}
+                </mat-option>
+              </mat-select>
+              <mat-error class="error-message" *ngIf="datos.get('proveedores').hasError">
+                El campo Proveedores es requerido
+              </mat-error>
+              <mat-icon matSuffix>assignment_ind</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+          <span class="btn-file">
+            <input type="file" (change)="onFileSelected($event)">
+          </span>
+          <div class="img-responsive" *ngIf="imgUrl">
+            <img class="avatarP border-gray"  [src]="imgUrl" alt="_img" style="max-width: 40% !important; max-height: 40% !important;">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class=" col-md-12 col-sm-12 col-xs-12">
+          <div class="form-group">
+            <mat-form-field style="width: 100%;" appearance="outline">
+              <mat-label>Descripción</mat-label>
+              <textarea cols="10" formControlName="descripcion" matInput
+                placeholder="Agregue una descripcion para el producto por favor"></textarea>
+              <mat-error class="error-message" *ngIf="datos.get('descripcion').hasError">
+                El campo descripcion es requerido
+              </mat-error>
+              <mat-icon matSuffix>chrome_reader_mode</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class=" col-md-12 col-sm-12 col-xs-12">
+          <div class="form-group">
+            <mat-form-field style="width: 100%;" appearance="outline">
+              <mat-label>Codigo de Barras</mat-label>
+              <textarea formControlName="codigoBar" matInput placeholder="código de barras"></textarea>
+              <mat-error class="error-message" *ngIf="datos.get('codigoBar').hasError">
+                El campo Codigo de barras es requerido
+              </mat-error>
+              <mat-icon matSuffix>view_week</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="row">
+        <div class="col-md-6 text-center">
+          <button class="btn btn-fill  btn-success mat-raised-button" type="button" (click)="submit()">
+            <mat-icon matSuffix>save</mat-icon> Guardar
+          </button>
+        </div>
+        <div class="col-md-6 text-center">
+          <button class="btn btn-fill  btn-danger mat-raised-button" type="button" (click)="dialogRef.close(0)">
+            <mat-icon matSuffix>cancel</mat-icon> Cancelar
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

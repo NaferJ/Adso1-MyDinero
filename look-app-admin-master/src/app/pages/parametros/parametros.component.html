@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Listado - Parametros
+          <button class="btn bg-success btn-icon btn-round" style="float: right" (click)="createParametro()" matTooltip="crear parametro">
+            <i class="nc-icon nc-simple-add"></i>
+          </button>
+          <button class="btn bg-default btn-icon btn-round" style="float: right" matTooltip="actualizar listado" (click)="refreshList();">
+            <i class="material-icons">refresh</i>
+          </button>
+        </h4>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead class="text-primary">
+              <th>#</th>
+              <th>Nombre</th>
+              <th>Abreviatura</th>
+              <th>Codigo</th>
+              <th>Valor</th>
+              <th>Fecha Ini</th>
+              <th>Fecha Fin</th>
+              <th>Acciones</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of parametros| paginate: {itemsPerPage: 6, currentPage: pageNow}; let i = index;">
+                <td>{{i+1}}</td>
+                <td>{{item.nombre}}</td>
+                <td>{{item.abrev}}</td>
+                <td>{{item.codigo}}</td>
+                <td>{{item.valor}}</td>
+                <td>{{item.fechaInicio}}</td>
+                <td>{{item.fechaFin}}</td>
+                <td>
+                  <div class="row">
+                    <button class="btn btn-danger  btn-sm btn-round btn-icon" type="button" (click)="updateParametro(item)">
+                      <i class="material-icons">create</i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <pagination-controls *ngIf="parametros?.length >= 5" (pageChange)="pageNow = $event" responsive="true"
+            previousLabel="Ant" nextLabel="Sgte" screenReaderPaginationLabel="Pagination"
+            screenReaderPageLabel="page">
+          </pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

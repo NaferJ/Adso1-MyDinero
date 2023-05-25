@@ -1,0 +1,53 @@
+/* You can add global styles to this file, and also import other style files */
+/* @import "~ngx-smart-modal/ngx-smart-modal"; */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~ngx-smart-modal/ngx-smart-modal";
+.btn.btn-google {
+  background-color: #dd4b39;
+  color: #fff;
+}
+
+.btn{
+  margin: 1px !important;
+}
+
+.material-icons {
+  font-size: 1.1rem !important;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  background: #f4f3ef;
+  width: 8px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background: #888;
+}
+
+
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* #map { position:absolute; top:0; bottom:0; width:100%; } */
+
+.avatarP {
+  width: 124px;
+  height: 124px;
+  border: 1px solid #FFFFFF;
+  position: relative;
+}

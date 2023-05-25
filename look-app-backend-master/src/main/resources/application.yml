@@ -1,0 +1,48 @@
+spring:
+  security:
+    user:
+      name: admin
+      password: admin
+  boot:
+    admin:
+      client:
+        url: http://localhost:8080
+        instance:
+          metadata:
+            user:
+              name: admin
+              password: admin
+  application:
+    name: spring-boot-admin
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: recc2019*
+    url: jdbc:mysql://192.168.99.100:3306/lookapp?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+  jackson:
+    date-format: yyyy-MM-dd
+    locale: es_CO
+    time-zone: America/Bogota
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL57Dialect
+    database: MYSQL
+    openInView: true
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  servlet:
+    multipart:
+      max-file-size: 1000MB
+      max-request-size: 1000MB
+management:
+  endpoint:
+    health:
+      show-details: ALWAYS
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+server:
+    port : 5000
+
+

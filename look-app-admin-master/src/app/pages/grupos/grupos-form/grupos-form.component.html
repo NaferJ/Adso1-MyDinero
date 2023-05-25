@@ -1,0 +1,40 @@
+<div class="container">
+  <form method="POST" [formGroup]="datos" (ngSubmit)="submit()">
+    <div class="card-header bg-white">
+      <div class="card-icon">
+        <i class="nc-icon nc-box-2"></i>
+      </div>
+      <h5 class="card-title">Formulario - Grupos</h5>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-12 col-xs-12">
+          <div class="form-group">
+            <mat-form-field appearance="outline">
+              <mat-label>Nombre</mat-label>
+              <input matInput name="nit" formControlName="nombre" placeholder="Nombre">
+              <mat-error class="error-message" *ngIf="datos.get('nombre').hasError">
+                El campo nombre es requerido
+              </mat-error>
+              <mat-icon matSuffix>rate_review</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="row">
+        <div class="col-md-6 text-center">
+          <button class="btn btn-fill  btn-success mat-raised-button" type="button" (click)="submit()" [disabled]="!datos.valid">
+            Guardar
+          </button>
+        </div>
+        <div class="col-md-6 text-center">
+          <button class="btn btn-fill  btn-danger mat-raised-button" type="button" (click)="dialogRef.close(0)">
+            Cancelar
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

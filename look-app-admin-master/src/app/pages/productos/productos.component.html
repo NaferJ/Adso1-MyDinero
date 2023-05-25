@@ -1,0 +1,68 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Listado - Productos
+          <button class="btn bg-success btn-icon btn-round" style="float: right" (click)="createProduct()" matTooltip="Crear Producto">
+            <i class="nc-icon nc-simple-add"></i>
+          </button>
+          <button class="btn bg-default btn-icon btn-round" style="float: right" matTooltip="refresh" (click)="refreshList();">
+            <i class="material-icons">refresh</i>
+          </button>
+        </h4>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead class="text-primary">
+              <th>#</th>
+              <th>Nombre</th>
+              <th>Cantidad</th>
+              <th>Num Factura</th>
+              <th>Precio Compra</th>
+              <th>Precio venta</th>
+              <th>U. Medida</th>
+              <th>Utilidad</th>
+              <th>Utilidad Esperada</th>
+              <th>Ubicacion</th>
+              <th>Proveedor</th>
+              <th>Acciones</th>
+            </thead>
+            <tbody>
+              <tr *ngIf="productosEntidad">
+
+              </tr>
+              <tr *ngFor="let item of productos | paginate: {itemsPerPage: 6, currentPage: pageNow}; let i = index">
+                <td>{{i+1}}</td>
+                <td>{{item.nombre}}</td>
+                <td>{{item.cantidad}}</td>
+                <td>{{item.numFactura}}</td>
+                <td>{{item.precioCompra | currency :'$'}}</td>
+                <td>{{item.precioVenta | currency :'$'}}</td>
+                <td *ngFor="let unidad of item.unidadMedida">{{unidad.nombre}}</td>
+                <td>{{item.utilidad}} %</td>
+                <td>{{item.utilidadEsperada}} %</td>
+                <td>{{item.ubicacion}}</td>
+                <td *ngFor="let proveedor of item.proveedores">{{proveedor.nombre}}</td>
+                <td>
+                  <div class="row">
+                    <button class="btn btn-danger  btn-sm btn-round btn-icon" type="button" (click)="updateProduct(item)" matTooltip="Editar">
+                      <i class="material-icons">create</i>
+                    </button>
+                    <button class="btn btn-google  btn-sm btn-round btn-icon" type="button" (click)="setEstado(item)" matTooltip="Eliminar">
+                      <i class="material-icons">clear</i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <pagination-controls *ngIf="productos?.length >= 5" (pageChange)="pageNow = $event" responsive="true"
+            previousLabel="Ant" nextLabel="Sgte" screenReaderPaginationLabel="Pagination"
+            screenReaderPageLabel="page">
+          </pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

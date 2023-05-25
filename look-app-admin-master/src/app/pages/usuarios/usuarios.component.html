@@ -1,0 +1,58 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Listado - Usuarios
+          <button class="btn bg-success btn-icon btn-round" style="float: right">
+            <i class="nc-icon nc-simple-add"></i>
+          </button>
+          <button class="btn bg-default btn-icon btn-round" style="float: right" matTooltip="refresh" (click)="refreshList();">
+            <i class="material-icons">refresh</i>
+          </button>
+        </h4>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead class="text-primary">
+              <th>#</th>
+              <th>Nombre</th>
+              <th>Apellidos</th>
+              <th>Fecha Nacimiento</th>
+              <th>Email</th>
+              <th>Telefono</th>
+              <th>Identificacion</th>
+              <th>Rol</th>
+              <th>Acciones</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of usuarios; let i = index;">
+                <td>{{i+1}}</td>
+                <td>{{item.nombres}}</td>
+                <td>{{item.apellidos}}</td>
+                <td>{{item.fecha_nacimiento}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.telefono}}</td>
+                <td>{{item.identificacion}}</td>
+                <td *ngIf="item.roles[0].nombre == 'ROLE_ADMIN'">Administrador</td>
+                <td *ngIf="item.roles[0].nombre == 'ROLE_CLIENTE'">Cliente</td>
+                <td *ngIf="item.roles[0].nombre == 'ROLE_OPERATIVO'">Operativo</td>
+                <td *ngIf="item.roles[0].nombre == 'ROLE_SUPER'">Super Admin</td>
+                <td>
+                  <div class="row">
+                    <button class="btn btn-danger  btn-sm btn-round btn-icon" type="button">
+                      <i class="material-icons">create</i>
+                    </button>
+                    <button class="btn btn-google  btn-sm btn-round btn-icon" type="button">
+                      <i class="material-icons">clear</i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

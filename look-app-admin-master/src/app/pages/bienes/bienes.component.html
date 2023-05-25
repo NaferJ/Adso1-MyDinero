@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Listado - Bienes y servicios
+          <button class="btn bg-success btn-icon btn-round" style="float: right" (click)="createBien()">
+            <i class="nc-icon nc-simple-add"></i>
+          </button>
+          <button class="btn bg-default btn-icon btn-round" style="float: right" matTooltip="refresh" (click)="refreshList();">
+            <i class="material-icons">refresh</i>
+          </button>
+        </h4>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead class="text-primary">
+              <th>#</th>
+              <th>Nombre</th>
+              <th>valor</th>
+              <th>Acciones</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of bienes | paginate: {itemsPerPage: 5, currentPage: pageNow}; let i = index;">
+                <td>{{i+1}}</td>
+                <td>{{item.nombres}}</td>
+                <td>{{item.valor | currency}}</td>
+                <td>
+                  <div class="row">
+                    <button class="btn btn-danger  btn-sm btn-round btn-icon" type="button" (click)="updateBien(item)">
+                      <i class="material-icons">create</i>
+                    </button>
+                    <button class="btn btn-google  btn-sm btn-round btn-icon" type="button" (click)="setEstado(item)">
+                      <i class="material-icons">clear</i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <pagination-controls *ngIf="bienes?.length >= 5" (pageChange)="pageNow = $event" responsive="true" previousLabel="Ant"
+            nextLabel="Sgte" screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page">
+          </pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
